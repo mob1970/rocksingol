@@ -1,0 +1,62 @@
+<fieldset>
+  <legend>Búsqueda</legend>
+  <% form_for :songs_list, :url => { :controller => 'song', :action => 'list_by_date' } do |f| %>
+    <table width="100%">
+      <tr>
+        <td>
+          Fecha de emisión : <%= select_day(@reference_date) %>
+          <%= select_month(@reference_date, :use_month_names => %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)) %>
+          <%= select_year(@reference_date) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.submit 'Buscar' %>
+        </td>
+        <td>
+        </td>
+      </tr>
+    </table>
+  <%  end %>
+</fieldset>
+
+<br /><br /><br />
+
+<% if ((@unconfirmed_songlist && @unconfirmed_songlist.length == 0) && (@confirmed_songlist && @confirmed_songlist.length ==0)) %>
+  <h3>No hay información de la sesi&oacute;n de esta fecha</h3>
+<% else %>
+
+    <% if (@unconfirmed_songlist && @unconfirmed_songlist.length != 0) %>
+	  	<div id="non_confirmed_songlist">
+		  <h4>Sesión no confirmada</h4>
+		  <br />
+		  <ul>
+		    <%  for song in @unconfirmed_songlist %>
+		      <li>
+		        <% hour = (song.session_datetime.hour > 9) ? song.session_datetime.hour.to_s : '0'+song.session_datetime.hour.to_s %>
+		        <% min = (song.session_datetime.min > 9) ? song.session_datetime.min.to_s : '0'+song.session_datetime.min.to_s %>
+		        <%= hour + ':' + min + ' ' +  song.title %> - <%= song.performers %> (<%=(song.revised? ? 'R':'NR') %>)
+		      </li>
+		    <%  end%>
+		  </ul>
+		  </div>
+		<% end %>
+
+  <div id="confirmed_songlist">
+
+    <% if (@confirmed_songlist && @confirmed_songlist.length !=0) %>
+      <h4>Sesión confirmada</h4>
+      <br />
+      <ul>
+        <%  for item in @confirmed_songlist %>
+          <li>
+            <% hour = (item.session_datetime.hour > 9) ? item.session_datetime.hour.to_s : '0'+item.session_datetime.hour.to_s %>
+            <% min = (item.session_datetime.min > 9) ? item.session_datetime.min.to_s : '0'+item.session_datetime.min.to_s %>
+            <%= hour + ':' + min + ' ' %><%= link_to item.song.name, :controller => 'band', :action => 'songs', :song_id => item.song.id, :session_date => @reference_date.strftime('%Y%m%d') %> - <%= item.song.performers_list.to_sentence(:connector => 'and', :last_word_connector => true) %>
+          </li>
+        <%  end%>
+      </ul>
+    <% end %>
+    <br /><br />
+  </div>
+<% end %>

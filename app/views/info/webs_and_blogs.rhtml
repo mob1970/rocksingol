@@ -1,0 +1,26 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<h3>Webs y Blogs</h3>
+
+<p>
+<ul>
+  <% for person in @people %>
+  <li>
+    <%= h(person.firstname + ' ' + person.lastname) %>
+    <%  if (person.web || person.blog) %>
+        <ul>
+          <%  if (person.web) %>
+          <li> Web : <%= link_to h(person.web), h(person.web) %> </li>
+          <% end %>
+          <%  if (person.blog) %>
+          <li> Blog : <%= link_to h(person.blog), h(person.blog) %> </li>
+          <% end %>
+        </ul>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+</p>

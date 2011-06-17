@@ -1,0 +1,58 @@
+<h3>Bandas</h3>
+<br />
+<p>
+  Estas son las bandas de las que se han ido pinchando en el programa cuyas canciones han sido validadas por los administradores de la web
+  (proximamente pondr&eacute;is acceder a las canciones de cada grupo). Podéis ver las canciones validadas a traves del nombre de la banda en la lista (es un enlace).
+  <br /><br />
+  <strong class="nota">NOTA: </strong> Si quereis buscar un grupo o cantante que empiece por 'The ', 'La ' o 'Los ' (como por ejemplo 'The
+  Rolling Stones, La frontera o Los perros del boogie) no los busqu&eacute;is por la 'T' ni por la 'L' sin&oacute; por la letra de la segunda
+  palabra (The Rolling Stones por la 'R', La frontera por la 'F' y Los perros del boogie por la 'P').
+
+
+</p>
+
+<br /><br /><br />
+
+<div id="bands_links">
+  
+<%
+
+  first_char = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P',
+                'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+  first_char.each do |char|
+%>
+<%= ' | ' if (char != 'A') %><%= link_to char, :controller => 'band', :action => 'list', :first_char => char %>
+<%
+  end
+%>
+
+</div>
+
+<br /><br /><br /><br />
+
+<div id="bands_list">
+
+  <% if (params[:first_char]) %>
+  <%  if (@bands && @bands.length() != 0) %>
+  <%  group_of_bands = @bands.in_groups_of(3, false) %>
+  <table width="100%">
+  <%    group_of_bands.each do |group| %>
+    <tr>
+  <%      group.each do |band| %>
+      <td width="33%">
+       <%=  link_to band.name, :controller => 'band', :action => 'songs', :band_id => band.id %><br />
+      </td>
+  <%      end %>
+    </tr>
+  <%    end %>
+  </table>
+  <%  else%>
+        <h3>No hay bandas que empiezen con la letra <%= params[:first_char]%>.</h3>
+  <%  end %>
+  <% end %>
+
+</div>
+
+<br /><br /><br />
+

@@ -1,0 +1,18 @@
+<div id="band_creation">
+  <fieldset>
+    <legend>Nueva banda</legend>
+    <br />
+  <% form_for :band, :url => {:controller => 'admin', :action => 'new_band'} do |form| %>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td><%= form.text_field :name , :size => 30 %></td>
+      </tr>
+    </table>
+    <br />
+    <%= submit_tag 'Añadir' %>
+    <br /><br />
+
+  <% end %>
+  </fieldset>
+</div>

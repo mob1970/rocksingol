@@ -1,0 +1,129 @@
+# Methods added to this helper will be available to all templates in the application.
+module ApplicationHelper
+
+
+    ###
+    #
+    ###
+    def title_tag()
+       '<title>' + (@title ||  'Rock sin Gol.com') + '</title>'
+    end
+
+    ###
+    #
+    ###
+    def header_links_tag()
+
+      html_code = link_to('Home', {:controller => 'info', :action => 'index'})
+      html_code += ' | ' +  link_to('Sesiones', {:controller => 'song', :action => 'list_by_date'})
+      html_code += ' | ' +  link_to('Frecuencias', {:controller => 'info', :action => 'frequencies'})
+      html_code += ' | ' +  link_to('Webs y Blogs', {:controller => 'info', :action => 'webs_and_blogs'})
+      html_code += ' | ' +  link_to('Bandas', {:controller => 'band', :action => 'list'})
+      
+      if (session && session[:user_id])
+        html_code += ' | ' +  link_to('A&ntilde;adir cancion', {:controller => 'song', :action => 'add_song'})
+        html_code += ' | ' +  link_to('Logout', {:controller => 'session', :action => 'logout'}, :confirm => 'Est&aacute;s seguro que quieres salir?')
+      else
+        html_code += ' | ' +  link_to('Login', {:controller => 'session', :action => 'login'})
+      end
+
+      return html_code
+    end
+
+    ###
+    #
+    ###
+    def foot_links_tag()
+
+      html_code = link_to(h('FAQ'), {:controller => 'info', :action => 'faq'})
+      html_code += ' | ' +  link_to(h('Registro'), {:controller => 'session', :action => 'register'})
+      html_code += ' | ' +  link_to(h('Sobre nosotros'), {:controller => 'info', :action => 'about_us'})
+      #html_code += ' | ' +  link_to(h('sitemap'), {:controller => 'search_engine', :action => 'sitemap'})
+      html_code += ' | ' +  link_to(h('Sugerencias'), {:controller => 'info', :action => 'ideas'})      
+      html_code += ' | ' +  link_to(h('RSS'), {:controller => 'info', :action => 'rss'})
+
+      return html_code
+    end
+
+    ###
+    #
+    ###
+    def google_analytics_tag()
+      return %q(<script type="text/javascript">
+                  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+                  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <script type="text/javascript">
+                  try {
+                    var pageTracker = _gat._getTracker("UA-12621311-1");
+                    pageTracker._trackPageview();
+                  } catch(err) {}
+                </script>)
+    end
+
+    ###
+    #
+    ###
+    def show_google_analytics_tag?()
+      return (RAILS_ENV == 'production')
+    end
+
+    ###
+    #
+    ###
+    def meta_content_type_tag()
+      return "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />"
+    end
+
+    ###
+    #
+    ###
+    def meta_description_tag()
+      if (@meta_description_tag)
+        return "<meta name='description' content='#{@meta_description_tag}' />"
+      end
+    end
+
+    ###
+    #
+    ###
+    def admin_links_tag()
+
+      if (session[:user_id] == 1)
+        html_code = link_to('A&ntilde;adir datos', {:controller => 'admin', :action => 'add_performers_and_authors_to_song'}) + '</li>'
+        html_code += ' | ' +  link_to('A&ntilde;adir sesiones', {:controller => 'admin', :action => 'list_handling'}) + '</li>'
+      end
+
+      return html_code
+
+    end
+
+    ###
+    #
+    ###
+    def registered_user?()
+      return session[:user_id]
+    end
+
+    ###
+    #
+    ###
+    def admin_user?()
+      return session[:user_id] == 1
+    end
+
+    ###
+    #
+    ###
+    def number_of_visitors_tag()
+      return Rails.cache.fetch('number_of_visitors', :expires_in => 30.minutes) {User.number_of_visitors().to_s()}
+    end
+
+    ###
+    #
+    ###
+    def number_of_users_logged_in_tag()
+      return Rails.cache.fetch('number_of_users_logged_in', :expires_in => 30.minutes) {Login.find_all_by_logout_datetime(nil).length.to_s()}
+    end
+
+end

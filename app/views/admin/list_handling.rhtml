@@ -1,0 +1,133 @@
+<div id="non_confirmed_songlist">
+
+  <fieldset>
+    <legend>Búsqueda</legend>
+    <% form_for :songs_list, :url => { :controller => 'admin', :action => 'list_unconfirmed_songs' } do |form| %>
+      <table width="100%">
+        <tr>
+          <td>
+            Fecha de emisión : <br />
+            <%= select_day(@reference_date) %>
+            <%= select_month(@reference_date, :use_month_names => %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)) %>
+            <%= select_year(@reference_date) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= form.submit 'Buscar' %>
+          </td>
+          <td>
+          </td>
+        </tr>
+      </table>
+    <%  end %>
+  </fieldset>
+
+  <br /><br /><br />
+
+  <% if (@unconfirmed_songlist && @unconfirmed_songlist.length != 0) %>
+    <h4>Sesión del dia <%=  @reference_date.strftime("%d-%m-%Y")%></h4>
+    <br />
+    <% form_for :songs_list, :url => { :controller => 'admin', :action => 'mark_songs_as_revised' } do |form| %>
+        <%  for song in @unconfirmed_songlist %>
+            <% hour = (song.session_datetime.hour > 9) ? song.session_datetime.hour.to_s : '0'+song.session_datetime.hour.to_s %>
+            <% min = (song.session_datetime.min > 9) ? song.session_datetime.min.to_s : '0'+song.session_datetime.min.to_s %>
+            <%= check_box_tag "song_ids[]", song.id.to_s() %><%= hour + ':' + min + ' ' +  song.title %> - <%= song.performers %> <br />
+        <%  end%>
+        <%=  hidden_field_tag('date[day]', @reference_date.day.to_s()) %>
+        <%=  hidden_field_tag('date[month]', @reference_date.month.to_s()) %>
+        <%=  hidden_field_tag('date[year]', @reference_date.year.to_s()) %>
+        <br />
+        <%= submit_tag 'Marcar como revisado  ' %>
+      <%  end%>
+  <% end %>
+  <br /><br />
+</div>
+
+<div id="song_search">
+  <fieldset>
+    <legend>Selecciona la canci&oacute;n</legend>
+    <br />
+  <% form_for :song, :url => {:controller => 'admin', :action => 'search_song'} do |form| %>
+    <%=  hidden_field_tag('date[day]', @reference_date.day.to_s()) %>
+    <%=  hidden_field_tag('date[month]', @reference_date.month.to_s()) %>
+    <%=  hidden_field_tag('date[year]', @reference_date.year.to_s()) %>
+    <%=  hidden_field_tag('referer', 'list_handling') %>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td><%= form.text_field :name , :size => 30 %></td>
+      </tr>
+    </table>
+    <br />
+    <%= submit_tag 'Buscar' %>
+    <br /><br />
+
+  <% end %>
+  </fieldset>
+</div>
+
+<br />
+
+<% if (@songs && @songs.length() != 0) %>
+  <% if (@songs.length() > 1) %>
+  <% form_for :song, :url => {:controller => 'admin', :action => 'search_song'} do |form| %>
+  <%  for song in @songs %>
+  <%=   radio_button(:song, :id, song.id) %> <%= song.name %> (
+  <%    if (song.performers_list.length() != 0) %>
+          Cantantes: <%= song.performers_list.to_sentence(:connector => 'and', :last_word_connector => true) %>
+  <%    end %>
+  <%    if (song.authors_list.length() != 0) %>
+          ,
+          Autores: <%= song.authors_list.to_sentence(:connector => 'and', :last_word_connector => true) %>
+  <%    end %>
+          )
+        <br />
+  <%  end %>
+  <%=  hidden_field_tag('date[day]', @reference_date.day.to_s()) %>
+  <%=  hidden_field_tag('date[month]', @reference_date.month.to_s()) %>
+  <%=  hidden_field_tag('date[year]', @reference_date.year.to_s()) %>
+  <%=  hidden_field_tag('referer', 'list_handling') %>
+  <br />
+  <%= submit_tag 'Seleccionar' %>
+  <% end %>
+  <% else %>
+  <h4>Canci&oacute;n seleccionada : </h4>
+  <br />
+  <%= @songs[0].name  %>
+  (
+  <%    if (@songs[0].performers_list.length() != 0) %>
+          Cantantes: <%= @songs[0].performers_list.to_sentence(:connector => 'and', :last_word_connector => true) %>
+  <%    end %>
+  <%    if (@songs[0].authors_list.length() != 0) %>
+          ,
+          Autores: <%= @songs[0].authors_list.to_sentence(:connector => 'and', :last_word_connector => true) %>
+  <%    end %>
+  )
+  <br /><br />
+  <% form_for :song, :url => {:controller => 'admin', :action => 'list_handling'} do |form| %>
+  <%=  form.hidden_field(:id, { :value => @songs[0].id}) %>
+  <%=  hidden_field_tag('date[day]', @reference_date.day.to_s()) %>
+  <%=  hidden_field_tag('date[month]', @reference_date.month.to_s()) %>
+  <%=  hidden_field_tag('date[year]', @reference_date.year.to_s()) %>
+  Hora 
+  <%= text_field :time, :hour, :size => 2 %> :
+  <%= text_field :time, :minutes, :size => 2 %>
+  <br /><br />
+  <%= submit_tag 'Grabar' %>
+  <% end %>
+  <% end %>
+
+<% if (flash[:error]) %>
+    <div class='error_message'>
+      <%= flash[:error] %>
+    </div>
+<% end %>
+
+<% if (flash[:notice]) %>
+    <div class='info_message'>
+      <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<% end %>

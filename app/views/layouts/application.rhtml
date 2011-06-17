@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+  <head>
+    <%= meta_content_type_tag %>
+    <%= meta_description_tag %>
+    <%= stylesheet_link_tag 'main' %>
+    <%= title_tag %>
+    <% if (show_google_analytics_tag?())   %>
+      <%= google_analytics_tag %>
+    <% end %>
+  </head>
+  <body onload="setFocusToMainField()">
+    <div id="wrap">
+      <div id="wrap_in">
+        <div id="head">
+          <%= render :partial => 'layouts/head' %>
+        </div>
+        <div id="main_content">
+          <%= yield %>
+        </div>
+        <br /><br />
+        <div id="foot">
+          <%= foot_links_tag %>
+        </div>
+        <br /><br /><br />
+      </div>
+    </div>
+  </body>
+</html>

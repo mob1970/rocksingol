@@ -1,0 +1,383 @@
+html {
+  color:#313131;
+  height: 100%;
+}
+
+body {
+  background: #F4F4EE;
+  font-family: arial;
+  font-size: 13px;
+  height: 100%;
+  min-height: 100%;
+}
+
+label {
+  font-size:13px;
+}
+
+td {
+  font-size:13px;  
+}
+
+p {
+  line-height:19px;
+}
+
+body, img, h1, h2, h3, h4, h5, form, blockquote {
+  margin:0;
+  padding:0;
+}
+
+h3 {
+    font-family: sans-serif;
+    /*color: #002372;*/
+    color: #293D6A;
+}
+
+h4 {
+  color: #151515;
+}
+
+hr {
+  border-top:1px dotted #B7B7B7;
+  text-align: center;
+}
+
+a {
+  font-weight: bold;
+  color: #323622;
+  text-decoration: underline;
+}
+
+a:hover {
+  font-weight: bold;
+  color: #323622;
+  /*color: #FF6400;*/
+  text-decoration:none;
+}
+legend {
+  background:#FFFFFF none repeat scroll 0 0;
+  border:1px solid #BBBBBB;
+  font-size:1.1em;
+  padding:0.4em 0.8em;
+}
+
+fieldset {
+  background:#FFFFFF none repeat scroll 0 0;
+  border:1px solid #BBBBBB;
+}
+
+#wrap {
+  margin:0 auto;
+  width:900px;
+  /*height: 100%;*/
+  background:white;
+  min-height: inherit;
+  border-color:#D7D7C8;
+  border-style:solid;
+  border-width:0 1px;
+}
+
+#wrap_in {
+  min-height:500px;
+  padding:0 20px;
+  width:850px;
+  height:100%;
+}
+
+#link_options {
+  color: white;
+  background-image: url(../images/links_background.png);
+  width: 850px;
+  height: 20px;
+  font-size: 12px;
+  font-family:sans-serif;
+  text-align: center;
+  font-weight: normal;
+}
+
+#administration_links {
+  text-align: right;
+}
+
+#administration_links a {
+  color: black;
+  width: 850px;
+  height: 15px;
+  font-size: 12px;
+  font-family:sans-serif;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+#link_options a  {
+  margin: 2px 2px;
+  color: white;
+  display: inline-block;
+  height: 12px;
+  text-decoration: none;
+  text-align: justify;
+  font-weight: normal;
+}
+
+#link_options a:hover {
+  margin: 2px 2px;
+  color: #7EBA09;
+  display: inline-block;
+  height: 12px;
+  text-decoration: none;
+  text-align: justify;
+}
+
+#main_content {
+  width:100%;
+}
+
+#foot {
+  background-image: url(../images/footer_background.png);
+  width: 850px;
+  height: 20px;
+  color: white;
+  font-size: 12px;
+  font-family:sans-serif;
+  text-align: center;
+  font-weight: normal;
+  clear:both;
+  text-align: center;
+}
+
+#foot a  {
+  margin: 2px 2px;
+  color: white;
+  display: inline-block;
+  height: 12px;
+  text-decoration: none;
+  text-align: justify;
+  font-weight: normal;
+}
+
+#foot a:hover {
+  margin: 2px 2px;
+  color: #7EBA09;
+  display: inline-block;
+  height: 12px;
+  text-decoration: none;
+  text-align: justify;
+}
+
+#index_body {
+    text-align: justify;
+}
+
+#index_last_salute {
+    text-align: right;
+}
+
+#register_now_text {
+    text-align: center;
+    border-style:double;
+    border-width: 3px;
+    margin: 0pt auto;
+    color: #293D6A;
+    width: 8em;
+}
+
+#register_now_text a {
+    text-decoration: none;
+}
+
+#login {
+    margin: 0pt;
+    float: right;
+    width: 40%;
+}
+
+#login_actions {
+    float: left;
+    width: 55%;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+#login_button {
+  text-align:right;
+}
+
+#forgotten_password {
+    text-align: right;
+}
+
+#non_confirmed_page {
+    width: 100%;
+    float:left;
+}
+
+#add_song_form {
+    float: right;
+    width: 50%;
+}
+
+#faq {
+}
+
+#non_confirmed_songlist {
+    width: 50%;
+    float: left;
+}
+
+#confirmed_songlist {
+    width: 45%;
+    float: right;
+}
+
+#band_creation {
+    width: 50%;
+    float: right;
+}
+
+#song_creation {
+    width: 50%;
+    float: left;
+}
+
+#bands_links {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+#bands_links a {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#bands_list {
+    padding-left: 40px;
+    color: black;
+}
+
+#bands_list a {
+    text-decoration: none;
+}
+
+#admin_main_content {
+  width:80%;
+  float: right;
+}
+
+#admin_left_layout {
+  float: left;
+  width: 20%;
+  height: 100%;
+}
+
+#users_info {
+  text-align: right;
+}
+
+#users_info label {
+  font-size: 11px;
+  font-weight: bold;
+  color: black;
+}
+
+#songs_list_info {
+  text-align: left;
+  margin-left: 25px;
+}
+
+#songs_list {
+  width: 40%;
+  float: left;
+  text-align: left;
+  margin-left: 15px;
+}
+
+#song_viewer {
+  width: 56%;
+  float: right;
+}
+
+#add_song_media {
+  width: 50%;
+  float: right;
+  margin-right: 35px;
+}
+
+#add_song_media_note {
+  width: 50%;
+  float: right;
+  width: 480px;
+  height: 385px;
+  font-size: 20px;
+  color: #410606;
+}
+
+#songs_list_return_link {
+  text-align: right;
+}
+
+#ideas_list li {
+	margin-bottom: 7px;
+}
+
+a span {
+  display: none;
+}
+
+a:hover span {
+  display: inline;
+  position: absolute;
+  padding: 5px;
+  color: #313131;
+  background-color: #FFFFE2;
+  border: 1px solid #000;
+  text-align: justify;
+  text-decoration: none;
+  width: 500px;
+}
+
+.nota {
+  color: red;
+}
+
+.vote_link {
+  text-decoration: none;
+  color: #410606;
+}
+
+.vote_link a:hover {
+  text-decoration: none;
+  /*color: #648434;*/
+  color: #410606;
+}
+
+.faq_title {
+  color: #293D6A;
+  font-weight: bold;
+}
+
+.main_page_note_title {
+    color: red;
+}
+
+.error_message {
+    color: #C8311B;
+    line-height: 28px;
+    padding-top: 6px;
+    background-color:#F3E3D6;
+    border:1px solid #C8311B;
+    height: 32px;
+    text-align: center;
+}
+
+.info_message {
+    color: #648434;
+    line-height: 28px;
+    padding-top: 6px;
+    background-color:#F2F2D5;
+    border:1px solid #C4C47C;
+    height: 32px;
+    text-align: center;
+}
+

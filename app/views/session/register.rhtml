@@ -1,0 +1,84 @@
+<script type="text/javascript" language="JavaScript">
+  function setFocusToMainField() {
+    document.forms['register_form'].elements['user[firstname]'].focus();
+  }
+</script>
+
+<div id="registration">
+  <div id="registered_user_actions">
+
+    Como usuario registrado podrás (entre otras cosas):
+    <br /><br />
+    <ul>
+      <li>
+        <strong class='faq_title'>Consultar datos del área privada.</strong>
+        <p>Acceder a toda aquella información sólo disponible para las personas registradas en el site (en caso de que exista información privada).</p>
+        <br />
+      </li>
+      <li>
+        <strong class='faq_title'>Ayudar a completar sesiones</strong>
+        <p>Podrás ayudarnos a llevar una registro de las canciones que pinchen el Oldie y el Youngie durante los dias de emisión de 8 de la mañana a 5 de la tarde.</p>
+        <br />
+      </li>
+  </ul>
+
+  </div>
+
+<br />
+
+  <div id="forgotten_password">
+    <h4><%= link_to 'Olvidaste tu password?', :controller => 'session', :action => 'forgotten_password' %></h4>
+  </div
+
+  <fieldset>
+    <legend>Registro</legend>
+    <br />
+  <% form_for :user, :url => {:controller => 'session', :action => 'register'}, :html => { :name => "register_form" } do |form| %>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td><%= form.text_field :firstname , :size => 60 %></td>
+      </tr>
+      <tr>
+        <td>Apellidos</td>
+        <td><%= form.text_field :lastname , :size => 60 %></td>
+      </tr>
+      <tr>
+        <td>Usuario</td>
+        <td><%= form.text_field :login , :size => 60 %></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><%= form.password_field :password, :size => 60 %></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><%= form.text_field :email , :size => 60 %></td>
+      </tr>
+    </table>
+    <br />
+    <%= submit_tag 'Registrar' %>
+      <br /><br />
+
+<% if (flash[:error]) %>
+    <div class='error_message'>
+      <%= flash[:error] %>
+    </div>
+<% end %>
+
+<% if (flash[:notice]) %>
+    <div class='info_message'>
+      <%= flash[:notice] %>
+    </div>
+<% end %>
+
+  </fieldset>
+
+  <br /><br /><br />
+
+  <% end %>
+
+  <br /><br />
+
+
+</div>

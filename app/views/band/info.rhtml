@@ -1,0 +1,10 @@
+<div id="">
+
+  <h3><%= @band.name %></h3>
+  <br /><br /><br />
+
+  <% for song in @band.songs do %>
+    <%= song.name %>
+  <% end %>
+
+</div>

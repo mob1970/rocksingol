@@ -1,0 +1,16 @@
+          <br />
+          <%if admin_user?()%>
+            <div id="administration_links">
+              <%= admin_links_tag  %>
+            </div>
+            <br /><br /><br />
+          <%end%>
+          <%= link_to image_tag('LogoRockSinGol_little2.png', :border => 0), :controller => 'info', :action => 'index' %>
+          <br />
+          <div id="link_options">
+            <%= header_links_tag %>
+          </div>
+          <div id="users_info">
+            <label>Usuarios : Conectados <%= number_of_visitors_tag %>, Registrados <%= number_of_users_logged_in_tag %></label>
+          </div>
+          <br /><br />

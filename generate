@@ -1,0 +1,963 @@
+S'ha iniciat l'execuci� de script a dg 14 mar 2010 18:54:41 CET
+]0;miquel@wolverine: ~/Development/rocksingol.netmiquel@wolverine:~/Development/rocksingol.net$ ssh root@jammin halt[Kssh root@jammin haltktala@mob1970.org[1Proot@jammin halt                    script/generate controller band
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/band
+      exists  test/functional/
+      exists  test/unit/helpers/
+      create  app/controllers/band_controller.rb
+      create  test/functional/band_controller_test.rb
+      create  app/helpers/band_helper.rb
+      create  test/unit/helpers/band_helper_test.rb
+]0;miquel@wolverine: ~/Development/rocksingol.netmiquel@wolverine:~/Development/rocksingol.net$ script/generate controller band[11Psh root@jammin haltktala@mob1970.org[7Pcript/server 
+=> Booting WEBrick
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2010-03-14 18:56:44] INFO  WEBrick 1.3.1
+[2010-03-14 18:56:44] INFO  ruby 1.9.1 (2010-01-10) [i486-linux]
+[2010-03-14 18:56:45] INFO  WEBrick::HTTPServer#start: pid=4029 port=3000
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#index (for 127.0.0.1 at 2010-03-14 18:56:52) [GET]
+  [4;36;1mUser Count (15.0ms)[0m   [0;1mSELECT count(*) FROM users[0m
+Rendering template within layouts/application
+Rendering info/index
+Rendered layouts/_head (52.4ms)
+Completed in 115ms (View: 96, DB: 16) | 200 OK [http://localhost/info]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:56:55) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 15ms (View: 14, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#bands_list (for 127.0.0.1 at 2010-03-14 18:56:58) [GET]
+  Parameters: {"first_char"=>"L"}
+Redirected to http://localhost:3000/session/login
+Filter chain halted as [:registered_user_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/admin/bands_list?first_char=L]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-03-14 18:56:58) [GET]
+Rendering template within layouts/application
+Rendering session/login
+Rendered layouts/_head (0.8ms)
+Completed in 13ms (View: 12, DB: 0) | 200 OK [http://localhost/session/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:57:28) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.6ms)
+Completed in 15ms (View: 14, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:57:31) [GET]
+  Parameters: {"first_char"=>"\xC3\x91"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'Ñ%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 39ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=%C3%91]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:57:33) [GET]
+  Parameters: {"first_char"=>"O"}
+  [4;36;1mBand Load (0.3ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'O%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=O]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:57:34) [GET]
+  Parameters: {"first_char"=>"P"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'P%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=P]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:57:36) [GET]
+  Parameters: {"first_char"=>"Y"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'Y%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=Y]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:58:02) [GET]
+  Parameters: {"first_char"=>"Y"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'Y%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://localhost/band/list?first_char=Y]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:58:37) [GET]
+  Parameters: {"first_char"=>"Y"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'Y%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=Y]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:58:37) [GET]
+  Parameters: {"first_char"=>"Y"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'Y%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=Y]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:58:37) [GET]
+  Parameters: {"first_char"=>"Y"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'Y%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=Y]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 18:58:45) [GET]
+  Parameters: {"first_char"=>"Y"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'Y%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=Y]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#index (for 127.0.0.1 at 2010-03-14 19:00:51) [GET]
+  [4;35;1mUser Count (0.1ms)[0m   [0mSELECT count(*) FROM users[0m
+Rendering template within layouts/application
+Rendering info/index
+Rendered layouts/_head (1.4ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:00:52) [GET]
+  Parameters: {"first_char"=>"Y"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'Y%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 36ms (View: 33, DB: 0) | 200 OK [http://localhost/band/list?first_char=Y]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#index (for 127.0.0.1 at 2010-03-14 19:02:31) [GET]
+  [4;35;1mUser Count (0.1ms)[0m   [0mSELECT count(*) FROM users[0m
+Rendering template within layouts/application
+Rendering info/index
+Rendered layouts/_head (1.6ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/info]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:02:34) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.6ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#index (for 127.0.0.1 at 2010-03-14 19:03:27) [GET]
+  [4;36;1mUser Count (0.1ms)[0m   [0;1mSELECT count(*) FROM users[0m
+Rendering template within layouts/application
+Rendering info/index
+Rendered layouts/_head (1.6ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/info]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:03:31) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.6ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:17) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:17) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (27.7ms)
+Completed in 33ms (View: 29, DB: 3) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:24) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:27) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:27) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:27) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:27) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#index (for 127.0.0.1 at 2010-03-14 19:04:31) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: list):
+  <internal:prelude>:8:in `synchronize'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#index (for 127.0.0.1 at 2010-03-14 19:04:38) [GET]
+  [4;35;1mUser Count (0.1ms)[0m   [0mSELECT count(*) FROM users[0m
+Rendering template within layouts/application
+Rendering info/index
+Rendered layouts/_head (1.3ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/info/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:39) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:50) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:50) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:50) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:04:53) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:05:59) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:05:59) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:05:59) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.6ms)
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:06:00) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+^C[2010-03-14 19:06:19] INFO  going to shutdown ...
+[2010-03-14 19:06:19] INFO  WEBrick::HTTPServer#start done.
+Exiting
+]0;miquel@wolverine: ~/Development/rocksingol.netmiquel@wolverine:~/Development/rocksingol.net$ script/server 
+=> Booting WEBrick
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2010-03-14 19:06:22] INFO  WEBrick 1.3.1
+[2010-03-14 19:06:22] INFO  ruby 1.9.1 (2010-01-10) [i486-linux]
+[2010-03-14 19:06:22] INFO  WEBrick::HTTPServer#start: pid=4238 port=3000
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:06:24) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (15.4ms)
+Completed in 60ms (View: 58, DB: 1) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:06:25) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:06:25) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.5ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:06:25) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:06:25) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:06:25) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:10:47) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 14ms (View: 13, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:10:58) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:10:58) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:10:58) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:10:59) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:11:13) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.5ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:15:09) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:15:09) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:15:09) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:16:34) [GET]
+  Parameters: {"first_char"=>"A"}
+  [4;36;1mBand Load (0.3ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'A%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;35;1mBand Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 26ms (View: 16, DB: 1) | 200 OK [http://localhost/band/list?first_char=A]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:16:37) [GET]
+  Parameters: {"first_char"=>"C"}
+  [4;36;1mBand Load (0.3ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'C%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 37ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=C]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:14) [GET]
+  Parameters: {"first_char"=>"C"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'C%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/band/list?first_char=C]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:17) [GET]
+  Parameters: {"first_char"=>"A"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'A%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;35;1mBand Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=A]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:18) [GET]
+  Parameters: {"first_char"=>"B"}
+  [4;36;1mBand Load (0.3ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'B%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;35;1mBand Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 13ms (View: 9, DB: 1) | 200 OK [http://localhost/band/list?first_char=B]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:19) [GET]
+  Parameters: {"first_char"=>"C"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'C%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=C]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:21) [GET]
+  Parameters: {"first_char"=>"D"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'D%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.9ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/band/list?first_char=D]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:33) [GET]
+  Parameters: {"first_char"=>"D"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'D%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=D]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:40) [GET]
+  Parameters: {"first_char"=>"D"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'D%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=D]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:42) [GET]
+  Parameters: {"first_char"=>"B"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'B%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=B]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:44) [GET]
+  Parameters: {"first_char"=>"A"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'A%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=A]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:46) [GET]
+  Parameters: {"first_char"=>"D"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'D%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=D]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:20:47) [GET]
+  Parameters: {"first_char"=>"E"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'E%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=E]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:28) [GET]
+  Parameters: {"first_char"=>"B"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'B%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=B]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:28) [GET]
+  Parameters: {"first_char"=>"C"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'C%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=C]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:31) [GET]
+  Parameters: {"first_char"=>"D"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'D%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;35;1mBand Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=D]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:34) [GET]
+  Parameters: {"first_char"=>"H"}
+  [4;36;1mBand Load (0.3ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'H%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=H]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:40) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.6ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-03-14 19:24:41) [GET]
+Rendering template within layouts/application
+Rendering session/login
+Rendered layouts/_head (0.8ms)
+Completed in 47ms (View: 45, DB: 0) | 200 OK [http://localhost/session/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:42) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.6ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:43) [GET]
+  Parameters: {"first_char"=>"O"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'O%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=O]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:45) [GET]
+  Parameters: {"first_char"=>"H"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'H%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=H]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 19:24:46) [GET]
+  Parameters: {"first_char"=>"E"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'E%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=E]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 20:05:13) [GET]
+  Parameters: {"first_char"=>"M"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'M%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=M]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 20:05:14) [GET]
+  Parameters: {"first_char"=>"N"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'N%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=N]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 20:05:16) [GET]
+  Parameters: {"first_char"=>"\xC3\x91"}
+  [4;36;1mBand Load (0.1ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'Ñ%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=%C3%91]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 20:55:08) [GET]
+  Parameters: {"first_char"=>"I"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'I%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=I]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 20:55:09) [GET]
+  Parameters: {"first_char"=>"E"}
+  [4;35;1mBand Load (0.1ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'E%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;36;1mBand Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.7ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/band/list?first_char=E]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 20:55:12) [GET]
+  Parameters: {"first_char"=>"Z"}
+  [4;35;1mBand Load (0.3ms)[0m   [0mSELECT * FROM `bands` WHERE (name like 'Z%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=Z]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 20:55:14) [GET]
+  Parameters: {"first_char"=>"T"}
+  [4;36;1mBand Load (0.3ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'T%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+  [4;35;1mBand Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `bands`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 37ms (View: 7, DB: 1) | 200 OK [http://localhost/band/list?first_char=T]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 22:36:32) [GET]
+  Parameters: {"first_char"=>"K"}
+  [4;36;1mBand Load (0.3ms)[0m   [0;1mSELECT * FROM `bands` WHERE (name like 'K%') ORDER BY name[0m
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list?first_char=K]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#index (for 127.0.0.1 at 2010-03-14 22:36:34) [GET]
+  [4;35;1mUser Count (0.1ms)[0m   [0mSELECT count(*) FROM users[0m
+Rendering template within layouts/application
+Rendering info/index
+Rendered layouts/_head (1.4ms)
+Completed in 13ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SongController#list_by_date (for 127.0.0.1 at 2010-03-14 22:36:36) [GET]
+Rendering template within layouts/application
+Rendering song/list_by_date
+Rendered layouts/_head (0.8ms)
+Completed in 20ms (View: 19, DB: 0) | 200 OK [http://localhost/song/list_by_date]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SongController#list_by_date (for 127.0.0.1 at 2010-03-14 22:36:39) [POST]
+  Parameters: {"authenticity_token"=>"t7Sr0mIe4qGel2vdqNzRe6RxX1NniVKZIJjpP+z6aHU=", "date"=>{"day"=>"12", "month"=>"3", "year"=>"2010"}, "commit"=>"Buscar"}
+  [4;36;1mListSong Load (0.3ms)[0m   [0;1mSELECT `list_songs`.* FROM `list_songs` INNER JOIN `lists` ON `lists`.id = `list_songs`.list_id WHERE (day = '2010-03-12') ORDER BY session_datetime[0m
+  [4;35;1mSessionSong Load (0.3ms)[0m   [0mSELECT * FROM `session_songs` WHERE (session_datetime between '2010-03-12 00:00:00' AND '2010-03-12 23:59:59') ORDER BY session_datetime[0m
+Rendering template within layouts/application
+Rendering song/list_by_date
+Rendered layouts/_head (0.8ms)
+Completed in 83ms (View: 4, DB: 1) | 200 OK [http://localhost/song/list_by_date]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#webs_and_blogs (for 127.0.0.1 at 2010-03-14 22:36:42) [GET]
+  [4;36;1mPerson Load (0.2ms)[0m   [0;1mSELECT * FROM `people` ORDER BY id[0m
+Rendering template within layouts/application
+Rendering info/webs_and_blogs
+  [4;35;1mPerson Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `people`[0m
+Rendered layouts/_head (1.4ms)
+Completed in 17ms (View: 13, DB: 1) | 200 OK [http://localhost/info/webs_and_blogs]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InfoController#frequencies (for 127.0.0.1 at 2010-03-14 22:36:44) [GET]
+  [4;36;1mProvince Load (0.3ms)[0m   [0;1mSELECT * FROM `provinces` ORDER BY name[0m
+Rendering template within layouts/application
+Rendering info/frequencies
+  [4;35;1mProvince Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `provinces`[0m
+  [4;36;1mCity Load (0.2ms)[0m   [0;1mSELECT * FROM `cities` WHERE (`cities`.province_id = 1) [0m
+  [4;35;1mCity Load (0.1ms)[0m   [0mSELECT * FROM `cities` WHERE (`cities`.province_id = 3) [0m
+  [4;36;1mCity Load (0.1ms)[0m   [0;1mSELECT * FROM `cities` WHERE (`cities`.province_id = 2) [0m
+  [4;35;1mCity Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `cities`[0m
+  [4;36;1mCity Load (0.2ms)[0m   [0;1mSELECT * FROM `cities` WHERE (`cities`.province_id = 4) [0m
+  [4;35;1mCity Load (0.1ms)[0m   [0mSELECT * FROM `cities` WHERE (`cities`.province_id = 5) [0m
+Rendered layouts/_head (1.4ms)
+Completed in 36ms (View: 31, DB: 2) | 200 OK [http://localhost/info/frequencies]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BandController#list (for 127.0.0.1 at 2010-03-14 22:36:47) [GET]
+Rendering template within layouts/application
+Rendering band/list
+Rendered layouts/_head (1.4ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/band/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-03-14 22:36:48) [GET]
+Rendering template within layouts/applicatio

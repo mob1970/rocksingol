@@ -1,0 +1,18 @@
+<div id="song_creation">
+  <fieldset>
+    <legend><%=  h('Nueva canción') %></legend>
+    <br />
+  <% form_for :song, :url => {:controller => 'admin', :action => 'new_song'} do |form| %>
+    <table>
+      <tr>
+        <td>T&iacute;tulo</td>
+        <td><%= form.text_field :name , :size => 30 %></td>
+      </tr>
+    </table>
+    <br />
+    <%= submit_tag 'A&ntilde;adir' %>
+    <br /><br />
+
+  <% end %>
+  </fieldset>
+</div>

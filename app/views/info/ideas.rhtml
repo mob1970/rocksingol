@@ -1,0 +1,54 @@
+<h3>Ideas/Sugerencias para a&ntilde;adir a la web</h3>
+<br />
+
+<%if (@ideas && @ideas.length() != 0) %>
+  <div id="ideas_list" />
+  <ul>
+  <% for idea in @ideas %>
+    <li>
+        <strong><%= h(idea.title) %>  </strong>
+        <br />
+        <%= h(idea.description) %><br />
+        <%= link_to 'Votar' , {:controller => 'info', :action => 'vote_idea', :id => idea.id}, {:class => 'vote_link', :alt => 'Vota'} %>
+        <%= '(' + h(idea.score) + ((idea.score == 1) ? ' voto' : ' votos') + ')' %>
+        <br />
+    </li>
+  <% end %>
+  </ul>
+  </div>
+<% else %>
+      <h3>No hay ideas publicadas por hacer.</h3>
+<% end %>
+
+<br /><br />
+<% if (registered_user?()) %>
+   <fieldset>
+      <legend>Idea</legend>
+      <br />
+    <% form_for :idea, :url => {:controller => 'info', :action => 'save_idea'}, :html => { :name => "ideas_form" } do |form| %>
+          <label>T&iacute;tulo</label> <br />
+          <%= form.text_field :title , :size => 52 %><br /><br />
+          <label>Descripci&oacute;n</label><br />
+          <%= form.text_area :description , :size => "60x10" %><br />
+      <br />
+      <%= submit_tag 'Grabar' %>
+        <br /><br />
+
+      <% if (flash[:error]) %>
+          <div class='error_message'>
+            <%= flash[:error] %>
+          </div>
+      <% end %>
+
+      <% if (flash[:notice]) %>
+          <div class='info_message'>
+            <%= flash[:notice] %>
+          </div>
+      <% end %>
+
+    <% end %>
+
+  </fieldset>
+<% end %>
+
+<br /><br /><br />

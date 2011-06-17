@@ -1,0 +1,103 @@
+<br /><br />
+
+<script type="text/javascript" language="JavaScript">
+  function setFocusToMainField() {
+    document.forms['login_form'].elements['user_login'].focus();
+  }
+</script>
+
+
+<div>
+
+  <div id="login_actions">
+    <h3>¿De que va esta web?</h3>
+
+    <br />
+
+    <p>
+      Esta web está creada para que todos los oyentes del programa Rock & Gol puedan consultar los datos referentes a este magnífico programa de Radio conducido por Rafael Escalada (el Oldie) e Iván Guillén (el Youngie).
+    </p>
+
+    <br /><br />
+
+    <h3>Todavía no te has registrado?</h3>
+    <br />
+    Como usuario registrado podrás (entre otras cosas):
+    <br /><br />
+    <ul>
+      <li>
+        <strong class='faq_title'>Consultar datos del área privada.</strong>
+        <p>Acceder a toda aquella información sólo disponible para las personas registradas en el site (en caso de que exista información privada).</p>
+        <br />
+      </li>
+      <li>
+        <strong class='faq_title'>Ayudar a completar sesiones</strong>
+        <p>Podrás ayudarnos a llevar una registro de las canciones que pinchen el Oldie y el Youngie durante los dias de emisión de 8 de la mañana a 5 de la tarde.</p>
+        <br />
+      </li>
+  </ul>
+
+    <br />
+    <div id="register_now_text">
+      <h3><%= link_to 'Registrar<br/>ahora', :controller => 'session', :action => 'register' %></h3>
+    </div>
+
+    <br /><br /><br /><br /><br /><br />
+
+  </div>
+
+  <div id="login">
+  <fieldset>
+    <legend>Login</legend>
+    <br />
+    <% form_for :user, :url => {:controller => 'session', :action => 'login'}, :html => { :name => "login_form" } do |form| %>
+    <%= token_tag %>
+      <table>
+        <tr>
+          <td>
+            <label>Usuario</label>
+          </td>
+          <td>
+            <%= form.text_field :login , :size => 20 %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Password</label>
+          </td>
+          <td>
+            <%= form.password_field :password, :size => 20 %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <div id="login_button">
+              <%= submit_tag 'Login' %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+    <br />
+    <% if (flash[:error]) %>
+        <p class='error_message'>
+          <%= flash[:error] %>
+        </p>
+    <% end %>
+  </fieldset>
+
+  <br />
+  <div id="forgotten_password">
+    <%= link_to 'Olvidaste tu password?', :controller => 'session', :action => 'forgotten_password' %>
+  </div>
+
+  <br /><br /><br />
+
+  </div>
+
+</div>
+
+
+

@@ -1,0 +1,111 @@
+<script type="text/javascript" language="JavaScript">
+  function setFocusToMainField() {
+    document.forms['add_song_form'].elements['date[hour]'].focus();
+  } 
+</script>
+
+<div id="non_confirmed_page">
+  <div id="non_confirmed_songlist">
+
+    <% form_for :song, :url => {:controller => 'song', :action => 'add_song'} do |form| %>
+      <table>
+        <tr>
+          <td>
+            Fecha
+          </td>
+          <td>
+            <%= select_day(@reference_date) %>
+            <%= select_month(@reference_date, :use_month_names => %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)) %>
+            <%= select_year(@reference_date) %><br />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td align="right">
+            <%= submit_tag 'Seleccionar' %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+    <br /><br />
+
+    <h3>Sesión del dia</h3>
+
+    <% if (@songlist) %>
+      <% if (@songlist.length != 0) %>
+        <br />
+        <ul>
+          <%  for song in @songlist %>
+          <li>
+            <% hour = (song.session_datetime.hour > 9) ? song.session_datetime.hour.to_s : '0'+song.session_datetime.hour.to_s %>
+            <% min = (song.session_datetime.min > 9) ? song.session_datetime.min.to_s : '0'+song.session_datetime.min.to_s %>
+            <%= hour + ':' + min + ' ' +  song.title %> - <%= song.performers %> (<%= (song.revised) ? 'R' : 'NR' %>)
+          </li>
+          <%  end%>
+        </ul>
+      <% end %>
+    <% end %>
+    <br /><br />
+    <strong>R - Canción revisada, NR - Canción no revisada</strong>
+    <br /><br />
+  </div>
+  <div id="add_song_form">
+    <fieldset>
+        <legend>Añadir cancion</legend>
+        <br />
+      <% form_for :song, :url => {:controller => 'song', :action => 'add_song'}, :html => { :name => "add_song_form" } do |form| %>
+        <table>
+          <tr>
+            <td>
+              Hora <br />
+              <%= text_field :date, :hour, :size => 2 %> :
+              <%= text_field :date, :minutes, :size => 2 %>
+              (hora peninsular española)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Título<br />
+              <%= form.text_field :title , :size => 40 %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Cantantes<br />
+              <%= form.text_field :performers , :size => 40 %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Autores (deja en blanco si el cantante es el author)<br />
+              <%= form.text_field :authors , :size => 40 %>
+            </td>
+          </tr>
+        </table>
+        <%= hidden_field :date, :day, :value => @reference_date.day.to_s  %>
+        <%= hidden_field :date, :month, :value => @reference_date.month.to_s  %>
+        <%= hidden_field :date, :year, :value => @reference_date.year.to_s  %>
+        <br />
+        <%= submit_tag 'Añadir' %>
+          <br /><br />
+      <% end %>
+
+    </fieldset>
+
+    <br /><br />
+
+    <% if (flash[:error]) %>
+        <div class='error_message'>
+          <%= flash[:error] %>
+        </div>
+    <% end %>
+
+    <% if (flash[:notice]) %>
+        <div class='info_message'>
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
+      <br /><br />
+  </div>
+  <br /><br />
+</div>

@@ -1,0 +1,21 @@
+<h3>Frecuencias</h3>
+
+<p>
+  Puedes escuchar Rock & Gol por internet yendo a su página web <a href="http://www.rockandgol.net">http://www.rockandgol.net</a> y usando el enlace 'Escuchanos en directo', añadiendo la dirección <a href="http://rockandgol.cope.stream.flumotion.com/cope/rockandgol.mp3.m3u">http://rockandgol.cope.stream.flumotion.com/cope/rockandgol.mp3.m3u</a> en el reproductor de audio de tu ordenador o, según la ciudad donde te encuentres en alguna de las siguientes frecuencias de radio (según la página de <%= link_to 'Rock&Gol', 'http://es.wikipedia.org/wiki/Rock_&_Gol' %> en la <%= link_to 'Wikipedia' , 'http://es.wikipedia.org/' %>).
+</p>
+
+<ul>
+  <%  for province in @provinces %>
+    <% if (province.frequency || province.cities.length != 0) %>
+    <li><%=  province.name %> <%=  ' (' + province.frequency + ')' if (province.frequency) %></li>
+    <% if (province.cities) %>
+        <ul>
+          <%  for city in province.cities %>
+          <li><%=  city.name %> <%=  ' (' + city.frequency + ')' if (city.frequency) %></li>
+          <% end %>
+        </ul>
+    <% end %>
+  <% end %>
+
+  <% end %>
+</ul>

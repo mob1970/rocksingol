@@ -1,0 +1,18 @@
+<div id="song_search">
+  <fieldset>
+    <legend>Selecciona la canci&oacute;n</legend>
+    <br />
+  <% form_for :song, :url => {:controller => 'admin', :action => 'search_song'} do |form| %>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td><%= form.text_field :name , :size => 30 %></td>
+      </tr>
+    </table>
+    <br />
+    <%= submit_tag 'Buscar' %>
+    <br /><br />
+
+  <% end %>
+  </fieldset>
+</div>

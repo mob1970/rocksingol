@@ -1,0 +1,103 @@
+<%= javascript_include_tag "application" %>
+
+<% if (@session_date) %>
+  <div id="songs_list_return_link">
+  	<%= post_link_to(url_for({:controller => 'song', :action => 'list_by_date', :date => @session_date}), 'Vuelve a la sesión') %>
+  </div>
+	
+<% elsif (@band) %>
+  <div id="songs_list_return_link">
+    <%= link_to 'Vuelve a la lista de bandas', :controller => 'band', :action => 'list', :first_char => @band.first_char_for_search() %>
+  </div>
+  <br /><br />
+<% end %>
+
+
+<h3>Canciones de <%=@band.name %> </h3>
+
+        <% if (@song) %>
+          <% if (@song.medias.length() != 0) %>
+            <div id ="song_viewer">
+              <%= @song.medias[0].code %>
+              <br /><br />
+            </div>
+          <% elsif (registered_user?()) %>
+            <div id ="add_song_media">
+              <fieldset>
+                <legend><%= @song.name %></legend>
+                <% form_for :media, :url => {:controller => 'song', :action => 'add_media'}, :html => { :name => "add_media_form" } do |form| %>
+                    <br />
+                    Copia la URL de Youtube aquí y dale a 'Previsualizar' e intentaremos generar el código para que veas el video en esta página.
+                    Si ves el video correctamente, dale a Añadir y lo insertarás en la aplicación para que podamos verlo todos.
+                    <br /><br />
+                    <!--label>Código Youtube</label><br / -->
+                    <%= hidden_field_tag('media[song_id]', @song.id) %>
+                    <%= hidden_field_tag('media[media_type_id]', 1) %>
+                    <%= hidden_field_tag('band_id', @band.id) %>
+                    <label>URL</label><br />
+                    <%= form.text_field :url , :size => 52 %><br />
+                    <br />
+                    <%= button_to_function 'Previsualizar', "set_youtube_embedded_code()" %>
+                    <%= submit_tag 'Añadir', :name =>'add_video' %>
+                    <%
+                       title = 'Aqui podrás añadir el video de la canción que quieras de youtube. <br/><br/>' +
+                               'Sólo tienes que ir a la página donde ves el video está el botón ' +
+                               'donde pone \'' + h('<Embed>') + '\'. Sólo tienes que darle y se abrirá un campo de texto con el contenido seleccionado, lo copias, lo pegas aquí y le ' +
+                               'das al botón de \'Añadir\' y lo verás a partir de ese momento en está página al seleccionar la canción.'
+                    %>
+                    <!--a href=#>
+                      Que és esto?
+                      <span><%=title%></span>
+                    </a -->
+                      <br /><br />
+                      <div id="video_preview">
+
+                      </div>
+
+                    <% if (flash[:error]) %>
+                        <div class='error_message'>
+                          <%= flash[:error] %>
+                        </div>
+                    <% end %>
+
+                    <% if (flash[:notice]) %>
+                        <div class='info_message'>
+                          <%= flash[:notice] %>
+                        </div>
+                    <% end %>
+                  <% end %>
+                </fieldset>
+              </div>
+            <% else %>
+              <div id="add_song_media_note">
+                <br /><br /><br /><br /><br />
+                Si quieres añadir el video de la canción a la web <br />
+                desde youtube, registrate y podrás hacerlo.
+              </div>
+            <% end %>
+        <% end %>
+
+<br /><br />
+
+<div id="songs_list_info">
+  <% if (@band) %>
+    <%  if (@band.performers && @band.performers.length() != 0) %>
+      <div id="songs_list">
+        <table width="100%">
+          <%    @band.performers.each do |performer| %>
+            <tr>
+              <td width="33%">
+                <%= link_to performer.song.name, :controller => 'band', :action => 'songs', :band_id => @band.id, :song_id => performer.song.id, :session_date => @session_date %><br />
+              </td>
+            </tr>
+          <%    end %>
+        </table>
+        <br /><br />
+      </div>
+    <%  else%>
+      <h3>No hay canciones para esta banda.</h3>
+    <%  end %>
+      <br clear="all" />
+  <% end %>
+</div>
+<br /><br />

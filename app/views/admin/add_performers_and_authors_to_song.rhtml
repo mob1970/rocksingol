@@ -1,0 +1,96 @@
+<% if (flash[:error]) %>
+    <div class='error_message'>
+      <%= flash[:error] %>
+    </div>
+<% end %>
+
+<% if (flash[:notice]) %>
+    <div class='info_message'>
+      <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<br clear="all" />
+
+<h3>A&ntilde;adir bandas o canciones</h3>
+<br />
+
+<%= render :partial => 'new_band', :locals => {:band => 'band'} %>
+
+<%= render :partial => 'new_song', :locals => {:song => 'song'} %>
+
+<br clear="all" />
+
+<br />
+<h3>A&ntilde;adir cantantes y autores a una canci&oacute;n</h3>
+<br />
+
+<div id="song_search">
+  <fieldset>
+    <legend>Selecciona la canci&oacute;n</legend>
+    <br />
+  <% form_for :song, :url => {:controller => 'admin', :action => 'search_song'} do |form| %>
+    <%=  hidden_field_tag('referer', 'add_performers_and_authors_to_song') %>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td><%= form.text_field :name , :size => 30 %></td>
+      </tr>
+    </table>
+    <br />
+    <%= submit_tag 'Buscar' %>
+    <br /><br />
+
+  <% end %>
+  </fieldset>
+</div>
+
+<br />
+
+<% if (@songs && @songs.length() != 0) %>
+  <% if (@songs.length() > 1) %>
+  <% form_for :song, :url => {:controller => 'admin', :action => 'search_song'} do |form| %>
+  <%=  hidden_field_tag('referer', 'add_performers_and_authors_to_song') %>
+  <%  for song in @songs %>
+  <%=   radio_button(:song, :id, song.id) %> <%= song.name %> (
+  <%    if (song.performers_list.length() != 0) %>
+          Cantantes: <%= song.performers_list.to_sentence(:connector => 'and', :last_word_connector => true) %>
+  <%    end %>
+  <%    if (song.authors_list.length() != 0) %>
+          ,
+          Autores: <%= song.authors_list.to_sentence(:connector => 'and', :last_word_connector => true) %>
+  <%    end %>
+          )
+        <br />
+  <%  end %>
+  <br /><br />
+  <%= submit_tag 'Buscar' %>
+  <% end %>
+  <% else %>
+  <h3>Canci&oacute;n seleccionada : <%= @songs[0].name  %> </h3>
+  <br />
+  <% form_for :song, :url => {:controller => 'admin', :action => 'add_song_data'} do |form| %>
+  <%=  form.hidden_field(:id, { :value => @songs[0].id}) %>
+  <table>
+    <tr>
+      <td>
+        Cantantes
+      </td>
+      <td>
+        Autores
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%=  form.collection_select(:performers, @performers, :id, :name , {}, :multiple => true, :size => 5, :style => "height:200px;width:300px;") %>
+      </td>
+      <td>
+        <%=  form.collection_select(:authors, @authors, :id, :name, { :include_blank => true }, :multiple => true, :size => 5, :style => "height:200px;width:300px;") %>
+      </td>
+    </tr>
+  </table>
+  <br /><br />
+  <%= submit_tag 'Grabar' %>
+  <% end %>
+  <% end %>
+<% end %>
